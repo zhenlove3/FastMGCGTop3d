@@ -57,7 +57,7 @@ def vcycle(f, k=1, kH=lev):
          return AA2(f)
     wd = (0.8/6)  # 0.6 ~ sor coef,   /6 ~ diag(A)^{-1}
     u = wd * f 
-    u += P(mg(R(f -AA(u)), k+1, kH))
+    u += P(vcycle(R(f -AA(u)), k+1, kH))
     u += wd * (f - AA(u))
     return u
 
